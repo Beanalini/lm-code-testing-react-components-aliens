@@ -1,9 +1,12 @@
 import { useState } from "react";
 import W12MHeader from "./W12MHeader";
 import SpeciesName from "./species-name";
+import PlanetName from "./planet-name";
 
 const W12MForm = () => {
-  const [speciesName, setSpeciesName] = useState<string>("plants");
+  const [speciesName, setSpeciesName] = useState<string>("humans");
+  const [planetName, setPlanetName] = useState<string>("Mars");
+
   return (
     <section className="w12MForm">
       <W12MHeader />
@@ -11,6 +14,11 @@ const W12MForm = () => {
       <SpeciesName
         speciesName={speciesName}
         onChangeSpeciesName={(value) => setSpeciesName(value)}
+      />
+
+      <PlanetName
+        planetName={planetName}
+        onChangePlanetName={(value) => setPlanetName(value)}
       />
     </section>
   );
