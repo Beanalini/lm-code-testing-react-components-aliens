@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import W12MHeader from "./W12MHeader";
 import SpeciesName from "./SpeciesName";
 import PlanetName from "./PlanetName";
@@ -24,6 +24,16 @@ const W12MForm = () => {
     setDisplayFormInput(true);
 
     //use handler for validation later
+  };
+
+  const handleFormReset = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setSpeciesName("");
+    setPlanetName("");
+    setBeingsNumber("");
+    setTwoPlusTwo("");
+    setReasonForSparing("");
+    setDisplayFormInput(false);
   };
 
   return (
@@ -56,14 +66,18 @@ const W12MForm = () => {
 
         <button type="submit">Submit</button>
       </form>
-
-      <DisplayFormInput
-        speciesName={speciesName}
-        planetName={planetName}
-        beingsNumber={beingsNumber}
-        displayFormInput={displayFormInput}
-        reasonsForSparing={reasonForSparing}
-      />
+      {displayFormInput && (
+        <>
+          <DisplayFormInput
+            speciesName={speciesName}
+            planetName={planetName}
+            beingsNumber={beingsNumber}
+            displayFormInput={displayFormInput}
+            reasonsForSparing={reasonForSparing}
+          />
+          <button onClick={handleFormReset}>Reset Form</button>
+        </>
+      )}
     </section>
   );
 };
