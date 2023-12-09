@@ -1,9 +1,12 @@
 interface iQTestProps {
-  result: string;
-  onChangeIQTest: (value: string) => void;
+  twoPlusTwo: string;
+  onChangeTwoPlusTwo: (value: string) => void;
 }
 
-const TwoPlusTwo: React.FC<iQTestProps> = ({ result, onChangeIQTest }) => {
+const TwoPlusTwo: React.FC<iQTestProps> = ({
+  twoPlusTwo,
+  onChangeTwoPlusTwo,
+}) => {
   return (
     <>
       <div>
@@ -11,8 +14,8 @@ const TwoPlusTwo: React.FC<iQTestProps> = ({ result, onChangeIQTest }) => {
         <select
           id="iQTest"
           name="iQTest"
-          value={result}
-          onChange={(e) => onChangeIQTest(e.target.value)}
+          value={twoPlusTwo}
+          onChange={(e) => onChangeTwoPlusTwo(e.target.value)}
         >
           <option value="4">4</option>
           <option value="Not 4">Not 4</option>

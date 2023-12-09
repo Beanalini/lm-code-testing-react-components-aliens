@@ -5,38 +5,64 @@ import PlanetName from "./PlanetName";
 import BeingsNumber from "./BeingsNumber";
 import TwoPlusTwo from "./TwoPlusTwo";
 import ReasonForSparing from "./ReasonForSparing";
+import DisplayFormInput from "./DisplayFormInput";
 
 const W12MForm = () => {
-  const [speciesName, setSpeciesName] = useState<string>("humans");
-  const [planetName, setPlanetName] = useState<string>("Mars");
-  const [beingsNumber, setBeingsNumber] = useState<string>("10");
-  const [result, setIQTestResult] = useState<string>("4");
+  const [speciesName, setSpeciesName] = useState<string>("");
+  const [planetName, setPlanetName] = useState<string>("");
+  const [beingsNumber, setBeingsNumber] = useState<string>("");
+  const [twoPlusTwo, setTwoPlusTwo] = useState<string>("");
   const [reasonForSparing, setReasonForSparing] = useState<string>("");
+  const [displayFormInput, setDisplayFormInput] = useState<boolean>(false);
+
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    //use state to display submit message
+    //change state here on submit to display input data
+
+    setDisplayFormInput(true);
+
+    //use handler for validation later
+  };
 
   return (
     <section className="w12MForm">
       <W12MHeader />
       {/* REST OF FORM GOES HERE */}
-      <SpeciesName
-        speciesName={speciesName}
-        onChangeSpeciesName={(value) => setSpeciesName(value)}
-      />
 
-      <PlanetName
+      <form onSubmit={submitHandler}>
+        <SpeciesName
+          speciesName={speciesName}
+          onChangeSpeciesName={(value) => setSpeciesName(value)}
+        />
+
+        <PlanetName
+          planetName={planetName}
+          onChangePlanetName={(value) => setPlanetName(value)}
+        />
+        <BeingsNumber
+          beingsNumber={beingsNumber}
+          onChangeBeingsNumber={(value) => setBeingsNumber(value)}
+        />
+        <TwoPlusTwo
+          twoPlusTwo={twoPlusTwo}
+          onChangeTwoPlusTwo={(value) => setTwoPlusTwo(value)}
+        />
+        <ReasonForSparing
+          reasonForSparing={reasonForSparing}
+          onChangeReasonForSparing={(value) => setReasonForSparing(value)}
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <DisplayFormInput
+        speciesName={speciesName}
         planetName={planetName}
-        onChangePlanetName={(value) => setPlanetName(value)}
-      />
-      <BeingsNumber
         beingsNumber={beingsNumber}
-        onChangeBeingsNumber={(value) => setBeingsNumber(value)}
-      />
-      <TwoPlusTwo
-        result={result}
-        onChangeIQTest={(value) => setIQTestResult(value)}
-      />
-      <ReasonForSparing
-        reasonForSparing={reasonForSparing}
-        onChangeReasonForSparing={(value) => setReasonForSparing(value)}
+        displayFormInput={displayFormInput}
+        reasonsForSparing={reasonForSparing}
       />
     </section>
   );
