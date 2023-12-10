@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface SpeciesNameProps {
   speciesName: string;
   onChangeSpeciesName: (value: string) => void;
