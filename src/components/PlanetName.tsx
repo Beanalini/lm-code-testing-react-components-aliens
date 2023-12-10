@@ -9,7 +9,7 @@ const PlanetName: React.FC<PlanetNameProps> = ({
   return (
     <>
       <div>
-        <label htmlFor="planetName">Planet Name:</label>
+        <label htmlFor="planetName">Planet Name</label>
         <input
           id="planetName"
           type="text"
