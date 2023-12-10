@@ -33,7 +33,7 @@ describe("PlanetName component", () => {
     const input = screen.getByLabelText("Planet Name");
     await userEvent.type(input, "Skaro");
     expect(mockOnChange).toHaveBeenCalled();
-    //expect 6 calls to the onChange function for each input letter
+    //expect 5 calls to the onChange function for each input letter
     expect(mockOnChange).toHaveBeenCalledTimes(5);
   });
 
