@@ -1,19 +1,19 @@
-interface iQTestProps {
+interface TwoPlusTwoProps {
   twoPlusTwo: string;
   onChangeTwoPlusTwo: (value: string) => void;
 }
 
-const TwoPlusTwo: React.FC<iQTestProps> = ({
+const TwoPlusTwo: React.FC<TwoPlusTwoProps> = ({
   twoPlusTwo,
   onChangeTwoPlusTwo,
 }) => {
   return (
     <>
       <div>
-        <label htmlFor="iQTest">What is 2 + 2?</label>
+        <label htmlFor="twoPlusTwo">What is 2 + 2?</label>
         <select
-          id="iQTest"
-          name="iQTest"
+          id="twoPlusTwo"
+          name="twoPlusTwo"
           value={twoPlusTwo}
           onChange={(e) => onChangeTwoPlusTwo(e.target.value)}
         >
