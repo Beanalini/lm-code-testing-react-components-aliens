@@ -3,7 +3,7 @@ import TwoPlusTwo from "./TwoPlusTwo";
 import userEvent from "@testing-library/user-event";
 
 describe("TwoPlusTwo component", () => {
-  test("Given the required props, When the component is rendered, Then it should display the default selected value", () => {
+  test("Given the required props, When the component is rendered, Then 'What is 2 + 2' label should be rendered", () => {
     const TwoPlusTwoProps = {
       twoPlusTwo: "",
       onChangeTwoPlusTwo: () => {},
