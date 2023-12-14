@@ -9,6 +9,7 @@ import DisplayFormInput from "./DisplayFormInput";
 import { validateSpeciesName } from "./validate/validateSpeciesName";
 import { validatePlanetName } from "./validate/validate-planet-name";
 import { validateBeingsNumber } from "./validate/validate-beings-number";
+import { validateTwoPlusTwo } from "./validate/validate-two-plus-two";
 
 const W12MForm = () => {
   const [speciesName, setSpeciesName] = useState<string>("");
@@ -64,6 +65,7 @@ const W12MForm = () => {
         <TwoPlusTwo
           twoPlusTwo={twoPlusTwo}
           onChangeTwoPlusTwo={(value) => setTwoPlusTwo(value)}
+          validate={validateTwoPlusTwo}
         />
         <ReasonForSparing
           reasonForSparing={reasonForSparing}

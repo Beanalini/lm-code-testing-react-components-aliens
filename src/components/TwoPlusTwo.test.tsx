@@ -7,6 +7,7 @@ describe("TwoPlusTwo component", () => {
     const TwoPlusTwoProps = {
       twoPlusTwo: "",
       onChangeTwoPlusTwo: () => {},
+      validate: () => [],
     };
     render(<TwoPlusTwo {...TwoPlusTwoProps} />);
     const labelText = screen.getByText("What is 2 + 2?");
@@ -17,6 +18,7 @@ describe("TwoPlusTwo component", () => {
     const TwoPlusTwoProps = {
       twoPlusTwo: "",
       onChangeTwoPlusTwo: () => {},
+      validate: () => [],
     };
     render(<TwoPlusTwo {...TwoPlusTwoProps} />);
     expect(screen.getAllByRole("option").length).toBe(2);
@@ -26,6 +28,7 @@ describe("TwoPlusTwo component", () => {
     const TwoPlusTwoProps = {
       twoPlusTwo: "",
       onChangeTwoPlusTwo: jest.fn(),
+      validate: () => [],
     };
     render(<TwoPlusTwo {...TwoPlusTwoProps} />);
     const result = screen.getByRole<HTMLInputElement>("combobox", {
@@ -41,6 +44,7 @@ describe("TwoPlusTwo component", () => {
     const TwoPlusTwoProps = {
       twoPlusTwo: "",
       onChangeTwoPlusTwo: mockingFunction, // use jest.fn() for the onChangeTwoPlusTwo function
+      validate: () => [],
     };
 
     render(<TwoPlusTwo {...TwoPlusTwoProps} />);

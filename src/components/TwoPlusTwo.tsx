@@ -1,11 +1,15 @@
+import FormErrorMessage from "./FormErrorMessage";
+
 interface TwoPlusTwoProps {
   twoPlusTwo: string;
   onChangeTwoPlusTwo: (value: string) => void;
+  validate: (validate: string) => Array<string>;
 }
 
 const TwoPlusTwo: React.FC<TwoPlusTwoProps> = ({
   twoPlusTwo,
   onChangeTwoPlusTwo,
+  validate,
 }) => {
   return (
     <>
@@ -21,6 +25,7 @@ const TwoPlusTwo: React.FC<TwoPlusTwoProps> = ({
           <option value="Not 4">Not 4</option>
         </select>
       </div>
+      <FormErrorMessage errMessage={validate(twoPlusTwo)} />
     </>
   );
 };
