@@ -1,11 +1,16 @@
+import FormErrorMessage from "./FormErrorMessage";
+
 interface SpeciesNameProps {
   speciesName: string;
   onChangeSpeciesName: (value: string) => void;
+  validate: (validate: string) => Array<string>;
 }
 const SpeciesName: React.FC<SpeciesNameProps> = ({
   speciesName,
   onChangeSpeciesName,
+  validate,
 }) => {
+  // const errMessages = validate(speciesName);
   return (
     <>
       <div>
@@ -17,6 +22,8 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
           onChange={(e) => onChangeSpeciesName(e.target.value)}
         />
       </div>
+      {/* {validate !== undefined && <FormErrorMessage errMessage={errMessages} />} */}
+      <FormErrorMessage errMessage={validate(speciesName)} />
     </>
   );
 };

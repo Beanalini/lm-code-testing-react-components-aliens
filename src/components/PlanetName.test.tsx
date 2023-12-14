@@ -7,6 +7,7 @@ describe("PlanetName component", () => {
     const PlanetNameProps = {
       planetName: "",
       onChangePlanetName: () => {},
+      validate: Array<string>,
     };
     render(<PlanetName {...PlanetNameProps} />);
     const labelText = screen.getByText("Planet Name");
@@ -16,6 +17,7 @@ describe("PlanetName component", () => {
     const PlanetNameProps = {
       planetName: "Gallifrey",
       onChangePlanetName: () => {},
+      validate: () => [],
     };
     render(<PlanetName {...PlanetNameProps} />);
     const input = screen.getByLabelText("Planet Name");

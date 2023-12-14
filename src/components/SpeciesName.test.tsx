@@ -7,6 +7,7 @@ describe("SpeciesName component", () => {
     const SpeciesNameProps = {
       speciesName: "",
       onChangeSpeciesName: () => {},
+      validate: () => [],
     };
     render(<SpeciesName {...SpeciesNameProps} />);
     const labelText = screen.getByText("Species Name");
@@ -16,6 +17,7 @@ describe("SpeciesName component", () => {
     const SpeciesNameProps = {
       speciesName: "Martian",
       onChangeSpeciesName: () => {},
+      validate: () => [],
     };
     render(<SpeciesName {...SpeciesNameProps} />);
     const input = screen.getByLabelText("Species Name");
@@ -27,6 +29,7 @@ describe("SpeciesName component", () => {
     const SpeciesNameProps = {
       speciesName: "",
       onChangeSpeciesName: mockOnChange,
+      validate: () => [],
     };
 
     render(<SpeciesName {...SpeciesNameProps} />);
@@ -37,13 +40,14 @@ describe("SpeciesName component", () => {
     expect(mockOnChange).toHaveBeenCalledTimes(6);
   });
 
-  //could'nt not find the correct matcher function to test passing correct parameter using userEvent.type - had to resort to using fireEvent instead
+  //could'nt find the correct matcher function to test passing correct parameter using userEvent.type - had to resort to using fireEvent instead
   test("Given the input props, When text is entered into the input field, Then its onChange function passes the correct parameter", () => {
     // const user = userEvent.setup();
     const mockOnChange = jest.fn();
     const SpeciesNameProps = {
       speciesName: "",
       onChangeSpeciesName: mockOnChange,
+      validate: () => [],
     };
 
     render(<SpeciesName {...SpeciesNameProps} />);

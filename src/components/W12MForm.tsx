@@ -6,6 +6,7 @@ import BeingsNumber from "./BeingsNumber";
 import TwoPlusTwo from "./TwoPlusTwo";
 import ReasonForSparing from "./ReasonForSparing";
 import DisplayFormInput from "./DisplayFormInput";
+import { validateSpeciesName } from "./validate/validateSpeciesName";
 
 const W12MForm = () => {
   const [speciesName, setSpeciesName] = useState<string>("");
@@ -41,10 +42,11 @@ const W12MForm = () => {
       <W12MHeader />
       {/* REST OF FORM GOES HERE */}
 
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} data-testid="form">
         <SpeciesName
           speciesName={speciesName}
           onChangeSpeciesName={(value) => setSpeciesName(value)}
+          validate={validateSpeciesName}
         />
 
         <PlanetName
