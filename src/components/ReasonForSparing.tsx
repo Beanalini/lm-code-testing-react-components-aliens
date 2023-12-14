@@ -1,11 +1,14 @@
+import FormErrorMessage from "./FormErrorMessage";
 interface ReasonForSparingProps {
   reasonForSparing: string;
   onChangeReasonForSparing(value: string): void;
+  validate: (validate: string) => Array<string>;
 }
 
 const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
   reasonForSparing,
   onChangeReasonForSparing,
+  validate,
 }) => {
   return (
     <>
@@ -21,6 +24,7 @@ const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
           onChange={(e) => onChangeReasonForSparing(e.target.value)}
         ></textarea>
       </div>
+      <FormErrorMessage errMessage={validate(reasonForSparing)} />
     </>
   );
 };

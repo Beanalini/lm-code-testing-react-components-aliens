@@ -10,7 +10,7 @@ import { validateSpeciesName } from "./validate/validateSpeciesName";
 import { validatePlanetName } from "./validate/validate-planet-name";
 import { validateBeingsNumber } from "./validate/validate-beings-number";
 import { validateTwoPlusTwo } from "./validate/validate-two-plus-two";
-
+import { validateReasonForSparing } from "./validate/reason-for-sparing";
 const W12MForm = () => {
   const [speciesName, setSpeciesName] = useState<string>("");
   const [planetName, setPlanetName] = useState<string>("");
@@ -70,6 +70,7 @@ const W12MForm = () => {
         <ReasonForSparing
           reasonForSparing={reasonForSparing}
           onChangeReasonForSparing={(value) => setReasonForSparing(value)}
+          validate={validateReasonForSparing}
         />
 
         <button type="submit">Submit</button>

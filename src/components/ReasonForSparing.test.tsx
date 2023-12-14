@@ -7,6 +7,7 @@ describe("ReasonForSparing component", () => {
     const ReasonForSparingProps = {
       reasonForSparing: "",
       onChangeReasonForSparing: () => {},
+      validate: () => [],
     };
     render(<ReasonForSparing {...ReasonForSparingProps} />);
     const labelText = screen.getByLabelText("Reason for sparing");
@@ -17,6 +18,7 @@ describe("ReasonForSparing component", () => {
     const ReasonForSparingProps = {
       reasonForSparing: "The Daleks have devastated our planet!",
       onChangeReasonForSparing: () => {},
+      validate: () => [],
     };
     render(<ReasonForSparing {...ReasonForSparingProps} />);
     const input = screen.getByRole("textbox");
@@ -29,6 +31,7 @@ describe("ReasonForSparing component", () => {
     const ReasonForSparingProps = {
       reasonForSparing: "The Daleks have devastated our planet!",
       onChangeReasonForSparing: mockingFunction,
+      validate: () => [],
     };
 
     render(<ReasonForSparing {...ReasonForSparingProps} />);
