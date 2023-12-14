@@ -1,11 +1,14 @@
+import FormErrorMessage from "./FormErrorMessage";
 interface BeingsNumberProps {
   beingsNumber: string;
   onChangeBeingsNumber: (value: string) => void;
+  validate: (validate: string) => Array<string>;
 }
 
 const BeingsNumber: React.FC<BeingsNumberProps> = ({
   beingsNumber,
   onChangeBeingsNumber,
+  validate,
 }) => {
   return (
     <>
@@ -18,6 +21,7 @@ const BeingsNumber: React.FC<BeingsNumberProps> = ({
           onChange={(e) => onChangeBeingsNumber(e.target.value)}
         />
       </div>
+      <FormErrorMessage errMessage={validate(beingsNumber)} />
     </>
   );
 };

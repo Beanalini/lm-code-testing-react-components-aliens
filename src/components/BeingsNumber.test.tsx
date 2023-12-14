@@ -7,6 +7,7 @@ describe("BeingsNumber component", () => {
     const BeingsNumberProps = {
       beingsNumber: "",
       onChangeBeingsNumber: () => {},
+      validate: () => [],
     };
     render(<BeingsNumber {...BeingsNumberProps} />);
     const labelText = screen.getByText("Number of beings:");
@@ -17,6 +18,7 @@ describe("BeingsNumber component", () => {
     const BeingsNumberProps = {
       beingsNumber: "2000",
       onChangeBeingsNumber: () => {},
+      validate: () => [],
     };
     render(<BeingsNumber {...BeingsNumberProps} />);
     const input = screen.getByLabelText("Number of beings:");
@@ -28,6 +30,7 @@ describe("BeingsNumber component", () => {
     const BeingsNumberProps = {
       beingsNumber: "",
       onChangeBeingsNumber: mockOnChange,
+      validate: () => [],
     };
 
     render(<BeingsNumber {...BeingsNumberProps} />);
@@ -43,6 +46,7 @@ describe("BeingsNumber component", () => {
     const BeingsNumberProps = {
       beingsNumber: "",
       onChangeBeingsNumber: mockOnChange,
+      validate: () => [],
     };
 
     render(<BeingsNumber {...BeingsNumberProps} />);
