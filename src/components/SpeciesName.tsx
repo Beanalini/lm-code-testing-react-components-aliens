@@ -22,7 +22,7 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
           onChange={(e) => onChangeSpeciesName(e.target.value)}
         />
       </div>
-      {/* {validate !== undefined && <FormErrorMessage errMessage={errMessages} />} */}
+
       <FormErrorMessage errMessage={validate(speciesName)} />
     </>
   );
