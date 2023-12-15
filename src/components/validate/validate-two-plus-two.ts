@@ -1,12 +1,12 @@
+export const error1 = "Incorrect answer!";
+
 export const validateTwoPlusTwo: (twoPlusTwo: string) => string[] = (
   twoPlusTwo
 ) => {
   //declare errorMessage array using the array constructor
   let errMessage = Array<string>();
 
-  const error1 = "Incorrect answer!";
-
-  if (twoPlusTwo === "Not 4") {
+  if (twoPlusTwo !== "4") {
     errMessage = [...errMessage, error1];
   }
 
