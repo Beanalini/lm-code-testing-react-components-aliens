@@ -5,7 +5,7 @@ describe("Test validateSpeciesName function", () => {
     expect(validateSpeciesName("Daleks")).toEqual([]);
     expect(validateSpeciesName("The TimeLords")).toEqual([]);
     expect(validateSpeciesName("Ood")).toEqual([]);
-    expect(validateSpeciesName("Sister of Plenitudeeeee")).toEqual([]);
+    expect(validateSpeciesName("Sister of Plenitudeee")).toEqual([]);
   });
 
   test("Given the required props When the input is the invalid number of characters Then the error message array should contain error2", () => {
@@ -20,7 +20,7 @@ describe("Test validateSpeciesName function", () => {
     expect(validateSpeciesName("Daleks2000")).toEqual([error1]);
     expect(validateSpeciesName("The % TimeLords!")).toEqual([error1]);
     expect(validateSpeciesName("Ood 650!")).toEqual([error1]);
-    expect(validateSpeciesName("Sister of Plenitude!?!")).toEqual([error1]);
+    expect(validateSpeciesName("Blathereen65!")).toEqual([error1]);
   });
   test("Given the required props When the input includes special characters or numbers and an invalid character length Then  the error message array should contain error1 and error2", () => {
     expect(validateSpeciesName("Daleks2000??? ???&&££$7878")).toEqual([

@@ -6,7 +6,7 @@ export const validateSpeciesName: (speciesName: string) => string[] = (
   //declare errorMessage array using the array constructor
   let errMessage = Array<string>();
 
-  const pattern = /[^A-Za-z ]/g;
+  const pattern = /[^a-zA-Z\s]/;
 
   if (pattern.test(speciesName)) {
     errMessage = [...errMessage, error1];
