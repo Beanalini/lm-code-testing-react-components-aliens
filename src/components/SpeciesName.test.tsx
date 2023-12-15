@@ -1,11 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import SpeciesName from "./SpeciesName";
 import userEvent from "@testing-library/user-event";
-import {
-  validateSpeciesName,
-  error1,
-  error2,
-} from "./validate/validateSpeciesName";
+import { error1, error2 } from "./validate/validateSpeciesName";
 
 describe("SpeciesName component", () => {
   test("Given the required props, When the component is rendered, Then Species name label should be present", () => {

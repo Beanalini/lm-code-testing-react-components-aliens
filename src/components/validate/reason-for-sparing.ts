@@ -9,6 +9,6 @@ export const validateReasonForSparing: (
 
   if ((planetNameLength > 0 && planetNameLength < 17) || planetNameLength > 153)
     errMessage = [...errMessage, error1];
-  console.log(errMessage);
+
   return errMessage;
 };

@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ReasonForSparing from "./ReasonForSparing";
 import userEvent from "@testing-library/user-event";
+import { error1 } from "./validate/reason-for-sparing";
 
 describe("ReasonForSparing component", () => {
   test("Given the required props, When the component is rendered, Then  label text should be rendered", () => {
@@ -39,5 +40,33 @@ describe("ReasonForSparing component", () => {
     await userEvent.type(input, "The Daleks have devastated our planet!");
     expect(mockingFunction).toHaveBeenCalled();
     expect(mockingFunction).toBeCalledTimes(38);
+  });
+});
+
+describe("Reasons for Sparing error message test", () => {
+  test("Given the required props, When a valid input is passed to the validate function , Then no  error message will be rendered", () => {
+    const mockValidate = jest.fn();
+    mockValidate.mockReturnValue([]);
+    const ReasonForSparingProps = {
+      reasonForSparing: "We're here in peas...;-)w",
+      onChangeReasonForSparing: () => {},
+      validate: mockValidate,
+    };
+    render(<ReasonForSparing {...ReasonForSparingProps} />);
+    const errorMessage = screen.queryByText(error1);
+    expect(errorMessage).not.toBeInTheDocument();
+  });
+
+  test("Given the required props, When an invalid input is passed to the validate function , Then an  error message will be rendered", () => {
+    const mockValidate = jest.fn();
+    mockValidate.mockReturnValue([error1]);
+    const ReasonForSparingProps = {
+      reasonForSparing: "Help!?",
+      onChangeReasonForSparing: () => {},
+      validate: mockValidate,
+    };
+    render(<ReasonForSparing {...ReasonForSparingProps} />);
+    const errorMessage = screen.queryByText(error1);
+    expect(errorMessage).toBeInTheDocument();
   });
 });

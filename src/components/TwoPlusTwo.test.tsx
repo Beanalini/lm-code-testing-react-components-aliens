@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import TwoPlusTwo from "./TwoPlusTwo";
 import userEvent from "@testing-library/user-event";
+import { error1 } from "./validate/validate-two-plus-two";
 
 describe("TwoPlusTwo component", () => {
   test("Given the required props, When the component is rendered, Then 'What is 2 + 2' label should be rendered", () => {
@@ -57,5 +58,33 @@ describe("TwoPlusTwo component", () => {
     //tests second option calls event handler
     await userEvent.selectOptions(combobox, "Not 4");
     expect(mockingFunction).toHaveBeenCalled();
+  });
+});
+
+describe("TwoPlusTwo rendering error message test", () => {
+  test("Given the required props, When a valid input is passed to the validate function , Then no  error message will be rendered", () => {
+    const mockValidate = jest.fn();
+    mockValidate.mockReturnValue([]);
+    const TwoPlusTwoProps = {
+      twoPlusTwo: "4",
+      onChangeTwoPlusTwo: () => {},
+      validate: mockValidate,
+    };
+    render(<TwoPlusTwo {...TwoPlusTwoProps} />);
+    const errorMessage = screen.queryByText(error1);
+    expect(errorMessage).not.toBeInTheDocument();
+  });
+
+  test("Given the required props, When the incorrect answer is selected , Then an error message will be rendered", () => {
+    const mockValidate = jest.fn();
+    mockValidate.mockReturnValue([error1]);
+    const TwoPlusTwoProps = {
+      twoPlusTwo: "4",
+      onChangeTwoPlusTwo: () => {},
+      validate: mockValidate,
+    };
+    render(<TwoPlusTwo {...TwoPlusTwoProps} />);
+    const errorMessage = screen.getByText(error1);
+    expect(errorMessage).toBeInTheDocument();
   });
 });
