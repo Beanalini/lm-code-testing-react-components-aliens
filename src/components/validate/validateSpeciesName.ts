@@ -16,6 +16,6 @@ export const validateSpeciesName: (speciesName: string) => string[] = (
     speciesName.length > 23
   )
     errMessage = [...errMessage, error2];
-  console.log(errMessage);
+
   return errMessage;
 };

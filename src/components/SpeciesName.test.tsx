@@ -41,7 +41,6 @@ describe("SpeciesName component", () => {
     expect(mockOnChange).toHaveBeenCalledTimes(6);
   });
 
-  //could'nt find the correct matcher function to test passing correct parameter using userEvent.type - had to resort to using fireEvent instead
   test("Given the input props, When text is entered into the input field, Then its onChange function passes the correct parameter", () => {
     // const user = userEvent.setup();
     const mockOnChange = jest.fn();
@@ -82,7 +81,7 @@ describe("SpeciesName rendering error message test", () => {
     };
     render(<SpeciesName {...SpeciesNameProps} />);
     const errorMessage = screen.getByText(error2);
-    console.log(error2);
+
     expect(errorMessage).toBeInTheDocument();
   });
   test("Given the required props, When a special character is included in the input , Then an error message will be rendered", () => {

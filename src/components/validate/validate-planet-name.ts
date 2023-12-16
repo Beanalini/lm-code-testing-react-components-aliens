@@ -16,6 +16,6 @@ export const validatePlanetName: (planetName: string) => string[] = (
   }
   if ((planetNameLength > 0 && planetNameLength < 2) || planetNameLength > 49)
     errMessage = [...errMessage, error2];
-  console.log(errMessage);
+
   return errMessage;
 };

@@ -20,17 +20,4 @@ describe("W12MForm component", () => {
     await userEvent.click(button);
     expect(screen.getByText("Submitted Data")).toBeInTheDocument();
   });
-
-  describe("Submit Button", () => {
-    it(`Check if the submit button calls its handler function and pass the correct parameters`, async () => {
-      const onSubmit = jest.fn();
-      render(<W12MForm />);
-
-      //   const submitButton = screen.getByRole("button");
-      const submitButton = screen.getByTestId("form");
-      console.log(submitButton);
-      await userEvent.click(submitButton);
-      expect(onSubmit).toHaveBeenCalledTimes(1);
-    });
-  });
 });

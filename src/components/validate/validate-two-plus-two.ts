@@ -10,6 +10,5 @@ export const validateTwoPlusTwo: (twoPlusTwo: string) => string[] = (
     errMessage = [...errMessage, error1];
   }
 
-  console.log(errMessage);
   return errMessage;
 };

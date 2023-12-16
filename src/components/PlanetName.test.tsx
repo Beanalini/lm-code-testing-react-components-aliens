@@ -41,7 +41,6 @@ describe("PlanetName component", () => {
     expect(mockOnChange).toHaveBeenCalledTimes(5);
   });
 
-  //could'nt not find the correct matcher function to test passing correct parameter using userEvent.type - had to resort to using fireEvent instead
   test("Given the input props, When text is entered into the input field, Then its onChange function passes the correct parameter", () => {
     const mockOnChange = jest.fn();
     const PlanetNameProps = {
@@ -81,7 +80,7 @@ describe("PlanetName rendering error message test", () => {
     };
     render(<PlanetName {...PlanetNameProps} />);
     const errorMessage = screen.getByText(error2);
-    console.log(error2);
+
     expect(errorMessage).toBeInTheDocument();
   });
   test("Given the required props, When a special character is included in the input , Then an error message will be rendered", () => {

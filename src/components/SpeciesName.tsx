@@ -10,7 +10,6 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
   onChangeSpeciesName,
   validate,
 }) => {
-  // const errMessages = validate(speciesName);
   return (
     <>
       <div>

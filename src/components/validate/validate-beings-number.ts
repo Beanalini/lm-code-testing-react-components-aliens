@@ -9,8 +9,6 @@ export const validateBeingsNumber: (beingsNumber: string) => string[] = (
 
   const pattern = /[^0-9]/;
 
-  //   const planetNameLength = beingsNumber.length;
-
   if (pattern.test(beingsNumber)) errMessage = [...errMessage, error1];
 
   if (
@@ -19,6 +17,5 @@ export const validateBeingsNumber: (beingsNumber: string) => string[] = (
   )
     errMessage = [...errMessage, error2];
 
-  console.log(errMessage);
   return errMessage;
 };

@@ -15,7 +15,7 @@ const W12MForm = () => {
   const [speciesName, setSpeciesName] = useState<string>("");
   const [planetName, setPlanetName] = useState<string>("");
   const [beingsNumber, setBeingsNumber] = useState<string>("");
-  const [twoPlusTwo, setTwoPlusTwo] = useState<string>("");
+  const [twoPlusTwo, setTwoPlusTwo] = useState<string>("4");
   const [reasonForSparing, setReasonForSparing] = useState<string>("");
   const [displayFormInput, setDisplayFormInput] = useState<boolean>(false);
 
@@ -35,7 +35,7 @@ const W12MForm = () => {
     setSpeciesName("");
     setPlanetName("");
     setBeingsNumber("");
-    setTwoPlusTwo("");
+    setTwoPlusTwo("4");
     setReasonForSparing("");
     setDisplayFormInput(false);
   };
@@ -43,9 +43,8 @@ const W12MForm = () => {
   return (
     <section className="w12MForm">
       <W12MHeader />
-      {/* REST OF FORM GOES HERE */}
 
-      <form onSubmit={submitHandler} data-testid="form">
+      <form onSubmit={submitHandler} data-testId="form" className="form">
         <SpeciesName
           speciesName={speciesName}
           onChangeSpeciesName={(value) => setSpeciesName(value)}
@@ -73,8 +72,11 @@ const W12MForm = () => {
           validate={validateReasonForSparing}
         />
 
-        <button type="submit">Submit</button>
+        <button className="submit-button" type="submit">
+          Submit
+        </button>
       </form>
+
       {displayFormInput && (
         <>
           <DisplayFormInput

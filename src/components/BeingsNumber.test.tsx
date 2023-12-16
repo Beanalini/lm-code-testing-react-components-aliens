@@ -80,7 +80,7 @@ describe("BeingsNumber rendering error message test", () => {
     };
     render(<BeingsNumber {...BeingsNumberProps} />);
     const errorMessage = screen.getByText(error2);
-    console.log(error2);
+
     expect(errorMessage).toBeInTheDocument();
   });
   test("Given the required props, When a special character is included in the input , Then an error message will be rendered", () => {
